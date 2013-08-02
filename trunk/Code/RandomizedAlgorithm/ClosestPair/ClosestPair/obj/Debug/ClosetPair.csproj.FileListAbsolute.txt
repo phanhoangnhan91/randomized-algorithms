@@ -1,0 +1,8 @@
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.csprojResolveAssemblyReference.cache
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.Properties.Resources.resources
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.csproj.GenerateResource.Cache
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\bin\Debug\ClosetPair.exe
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\bin\Debug\ClosetPair.pdb
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.exe
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.pdb
+C:\Users\ThanhMy\Google Drive\Code_RA\ClosetPair\ClosetPair\obj\Debug\ClosetPair.F_ClosestPair.resources
