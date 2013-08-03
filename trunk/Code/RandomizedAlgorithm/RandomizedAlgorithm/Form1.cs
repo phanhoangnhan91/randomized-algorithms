@@ -12,7 +12,7 @@ using test_prime;
 using MultiplyMatrix;
 using Client;
 using Kruskal;
-using ClosestPair;
+using ProjectClosestPair;
 namespace RandomizedAlgorithm
 {
     public partial class Form1 : Form
