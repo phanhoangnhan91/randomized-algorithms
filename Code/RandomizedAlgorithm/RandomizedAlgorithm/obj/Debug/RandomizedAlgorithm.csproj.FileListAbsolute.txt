@@ -40,3 +40,6 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\te
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Client.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.exe.config
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.pdb
