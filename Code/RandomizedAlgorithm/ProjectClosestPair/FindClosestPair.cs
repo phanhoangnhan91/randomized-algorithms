@@ -141,8 +141,6 @@ namespace ProjectClosestPair
                     }
                 }
             }
-
-            //???
             if (distTmp == minDist)
                 return null;
             return result;
@@ -161,13 +159,14 @@ namespace ProjectClosestPair
                 if (inputP == null)
                     return;
 
+                
+                double distance;
+                Stopwatch swDC = new Stopwatch();
+                swDC.Start();
                 //Sắp xếp mảng điểm theo hoành độ
                 var sortedX = (from arr in inputP
                                orderby arr._X
                                select arr).ToArray();
-                double distance;
-                Stopwatch swDC = new Stopwatch();
-                swDC.Start();
                 IPoint[] result = closestDC(sortedX, out distance);
                 swDC.Stop();
                 long microsecondsDC = swDC.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
@@ -272,6 +271,12 @@ namespace ProjectClosestPair
         private IPoint[] RandomizedAl(IPoint[] P, out double distantRA)
         {
             distantRA = double.MaxValue;
+
+            if (P.Length <= 3)
+            {
+                return bruteForce(P, ref distantRA);
+            }
+
             //Chọn ngẫu nhiên n^2/3 điểm từ input
             //Tạo thành mảng S[]
             int rp = (int)Math.Round(Math.Pow(P.Length, (2 * 1.0 / 3)), 0);
@@ -291,13 +296,14 @@ namespace ProjectClosestPair
                 else i--;
             }
 
-            //Tính khoảng cách ngắn nhất trong mảng S[] bằng cách đệ qui gọi hàm RandomizedAl 1 lần
+            //Tính khoảng cách ngắn nhất trong mảng S[], bằng cách đệ qui gọi hàm RandomizedAl 1 lần
             //Đặt làm denta
             double denta=double.MaxValue;
-            //Trong lần đệ qui đó dùng chiến lược trực tiếp để tìm khoảng cách ngắn nhất
+            //Trong lần đệ qui đó dùng chiến lược trực tiếp để tìm khoảng cách denta
             if (inrecurisve)
-            {                
-                return bruteForce(P, ref distantRA);
+            {
+                inrecurisve = false;
+                IPoint[] tmp = bruteForce(S, ref denta);
             }
             if (recursive)
             {
@@ -305,23 +311,17 @@ namespace ProjectClosestPair
                 inrecurisve = true;
                 IPoint[] resultS = RandomizedAl(S, out denta);
             }
+
+            //Xác định số lượng ô vuông có cạnh bằng denta:
+            //Xác định hoành độ lớn nhất và tung độ lớn nhất trong các điểm 
+            //Chọn giá trị lớn và đem chia cho denta
             int maxX, maxY;
-            int SquareInRow = 0; // so o vuong trong mot hang cua tap o vuong T
+            int SquareInRow = 0;
             FindMaxXY(P, out maxX, out maxY);
 
-            int maxValue = 0;
-
-            if (maxX >= maxY)
-            {
-                maxValue = maxX;
-                SquareInRow =(int) Math.Round(maxX / denta);
-            }
-            else
-            {
-                maxValue = maxY;
-                SquareInRow =(int) Math.Round(maxY / denta);
-            }
-
+            int maxValue = maxX >= maxY ? maxX : maxY;
+            SquareInRow = (int)Math.Round(maxValue / denta); 
+    
             if (SquareInRow * denta <= maxValue)
                 SquareInRow++;
 
@@ -337,6 +337,8 @@ namespace ProjectClosestPair
                 //Xác định ô vuông chứa điểm đang xét
                 T[(int)a * SquareInRow + (int)b].lstPoints.Add(P[i]);
             }
+
+            //Tạo các bộ T1, T2, T3, T4
             List<Square> T1, T2;
             List<Square> T3, T4;
 
@@ -351,8 +353,7 @@ namespace ProjectClosestPair
                    IPoint[] resultTmp = bruteForce(item.lstPoints.ToArray(), ref distantRA);
                    if (resultTmp != null)
                    {
-                       resultP = resultTmp;
-                       
+                       resultP = resultTmp;                      
                    }
                 }
             }
@@ -419,6 +420,7 @@ namespace ProjectClosestPair
                         h++;
                         continue;
                     }
+                    //chưa tới biên phải
                     if (h + 1 < SquareRow * (h / SquareRow + 1))
                     {
                         List<IPoint> l2 = HashP(T, SquareRow, h + 1);
@@ -446,6 +448,7 @@ namespace ProjectClosestPair
                         isAddT4 = true;
                         continue;
                     }
+                    //chưa tới biên phải dòng hiện tại
                     if (h + 1 < SquareRow * (h / SquareRow + 1))
                     {
                         List<IPoint> l = HashP(T, SquareRow, h + 1);
@@ -537,9 +540,7 @@ namespace ProjectClosestPair
         {
             this.listViewDuLieu.Items.Clear();
             chart1.Series.Clear();
-        }
-
- 
+        } 
     }
     public class Square
     {
