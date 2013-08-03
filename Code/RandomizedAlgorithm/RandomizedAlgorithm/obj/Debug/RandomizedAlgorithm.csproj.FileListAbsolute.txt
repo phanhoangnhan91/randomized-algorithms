@@ -29,14 +29,14 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\Ra
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Client.exe
-E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ClosestPair.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Kruskal.dll
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\MultiplyMatrix.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectQuicksort.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\test prime.exe
-E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ClosestPair.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\MultiplyMatrix.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Kruskal.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectQuicksort.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\test prime.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Client.pdb
+E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.exe
+E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.pdb
