@@ -384,11 +384,10 @@ namespace ProjectClosestPair
                         resultP = resultTmp;
                 }
             }
-
             return resultP;
         }
 
-        private List<IPoint> HashP(Square[] T, int SquareRow, int _index)
+        private List<IPoint> AllListP(Square[] T, int SquareRow, int _index)
         {
             List<IPoint> result = new List<IPoint>();
             result.AddRange(T[_index].lstPoints);
@@ -412,8 +411,8 @@ namespace ProjectClosestPair
                 {
                     if (h % SquareRow == 0)
                     {
-                        List<IPoint> l1 = HashP(T, SquareRow, h);
-                        List<IPoint> l2 = HashP(T, SquareRow, h + 1);
+                        List<IPoint> l1 = AllListP(T, SquareRow, h);
+                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
                         Square sG1 = new Square(l1, l2);
                         T1.Add(sG1);
                         tmp = l2;
@@ -423,7 +422,7 @@ namespace ProjectClosestPair
                     //chưa tới biên phải
                     if (h + 1 < SquareRow * (h / SquareRow + 1))
                     {
-                        List<IPoint> l2 = HashP(T, SquareRow, h + 1);
+                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
                         Square s = new Square(tmp, l2);
 
                         //h lẻ thì thêm vào T2
@@ -439,8 +438,8 @@ namespace ProjectClosestPair
                 {
                     if (h % SquareRow == 0)
                     {
-                        List<IPoint> l1 = HashP(T, SquareRow, h);
-                        List<IPoint> l2 = HashP(T, SquareRow, h + 1);
+                        List<IPoint> l1 = AllListP(T, SquareRow, h);
+                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
                         Square sG1 = new Square(l1, l2);
                         T3.Add(sG1);
                         tmp = l2;
@@ -451,7 +450,7 @@ namespace ProjectClosestPair
                     //chưa tới biên phải dòng hiện tại
                     if (h + 1 < SquareRow * (h / SquareRow + 1))
                     {
-                        List<IPoint> l = HashP(T, SquareRow, h + 1);
+                        List<IPoint> l = AllListP(T, SquareRow, h + 1);
                         Square s = new Square(tmp, l);
                         //Thay phiên thêm cho T3 và T4
                         if (isAddT4)
