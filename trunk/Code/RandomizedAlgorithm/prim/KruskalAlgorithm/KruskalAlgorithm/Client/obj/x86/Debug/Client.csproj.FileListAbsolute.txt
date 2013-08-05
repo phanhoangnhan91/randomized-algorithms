@@ -140,3 +140,16 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlg
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Kruskal.dll
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Kruskal.pdb
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.pdb
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Client.exe.config
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Client.exe
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Client.pdb
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Kruskal.dll
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\bin\Debug\Kruskal.pdb
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.csprojResolveAssemblyReference.cache
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Kruskal.dothi.resources
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Kruskal.frmCost.resources
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Kruskal.frmMinimuSpanningStree.resources
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.Properties.Resources.resources
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.csproj.GenerateResource.Cache
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.exe
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Client\obj\x86\Debug\Client.pdb

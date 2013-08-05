@@ -228,9 +228,9 @@
         #endregion
 
         #region randomize algorithm
-        public IList<Edge> RandMST(IList<Edge> graph, out int totalCost)// graph là dt ban đầu, vertices là danh sách các đỉnh (KHONG can Thiêt)
+        public IList<Edge> RandMST(IList<Edge> graph, out int totalCost)// graph là input
         {
-             // voi moi dinh cua do thi tim canh co trong so nho nhat
+             
           
             
             IList<Edge> solvedGraph = new List<Edge>(); // đồ thị KQ
@@ -238,7 +238,7 @@
             IList<Edge> g1 = Boruvka(graph, solvedGraph, out solvedGraph);// G1 là đồ thị hình 11.10
             IList<Edge> g2 = new List<Edge>(); // đồ thị hình 11.2
             IList<Edge> g3 = new List<Edge>();
-             // cau truc lai G1
+             
             
             
             if (g1.Count != 0)
@@ -246,7 +246,7 @@
                 if (g1.Count == 1) // nếu G1 chỉ có một cạnh thì add vào đồ thị kq
                     solvedGraph.Add(g1[0]);
                 else
-                {
+                {   // cau truc lai G1
                     Rename(g1);
                     g2 = Boruvka(g1, solvedGraph, out solvedGraph);
 
@@ -484,65 +484,63 @@
              }
          }
 
-         private IList<Edge> Boruvka(IList<Edge> graph, IList<Edge> solvedGraph_dauVao, out IList<Edge> solvedGraph)
+         private IList<Edge> Boruvka(IList<Edge> graph, IList<Edge> solvedGraph_Input, out IList<Edge> solvedGraph)
          {
              solvedGraph = new List<Edge>();//  solvedGraph  là những cạnh gạch liền trong hình 11-9
-             foreach (Edge ed in solvedGraph_dauVao) // với mỗi cạnh từ solvedGraph_dauVao add vào solvedGraph_daura
+             foreach (Edge ed in solvedGraph_Input) // với mỗi cạnh từ solvedGraph_input thêm vào solvedGraph
                  solvedGraph.Add(ed);            
-             IList<Edge> solvedGraph2 = new List<Edge>();// đồ thị hình 11.10
-             // tim danh sach cac cạnh còn lại
-             IList<Edge> dsCanhCL = new List<Edge>();
-             #region luu ten đỉnh
-             IList<int> tenDinh=new List<int>();// luu ten đỉnh
+             IList<Edge> solvedGraphBoruvka = new List<Edge>();// kết quả của Boruvka Step
+             // Tìm danh sách cạnh còn lại
+             IList<Edge> remainListEdge = new List<Edge>(); // danh sách các cạnh không được chọn, (cạnh còn lại)
+             #region Lấy ds tên đỉnh
+             IList<int> vertexName=new List<int>(); // lưu tên đỉnh
              foreach (Edge ed in graph)
              {
-                 //Vertex root1 = ed.V1.GetRoot();
-                 //Vertex root2 = ed.V2.GetRoot();
-               //  ed.V1.Root.name = root1.Name;
-                 bool kt1 = false;
+                
+                 bool check1 = false;
                  
-                 foreach (int i in tenDinh)
+                 foreach (int i in vertexName)
                  {
                      if ( ed.V1.Name2 == i)
                      {
-                         kt1 = true;
+                         check1 = true;
                          break;
                      }
                      
                  }
-                 if (kt1 == false)
-                     tenDinh.Add(ed.V1.Name2);
-                 bool kt2 = false;
+                 if (check1 == false)
+                     vertexName.Add(ed.V1.Name2);
+                 bool check2 = false;
                  if (ed.V1.Name2 != ed.V2.Name2)
                  {
-                     foreach (int i in tenDinh)
+                     foreach (int i in vertexName)
                      {
                          if (ed.V2.Name2 == i)
                          {
-                             kt2 = true;
+                             check2 = true;
                              break;
                          }
 
                      }
-                     if (kt2 == false)
-                         tenDinh.Add(ed.V2.Name2);
+                     if (check2 == false)
+                         vertexName.Add(ed.V2.Name2);
                  }
              }
              #endregion
 
-             // neu so canh = so dinh -1 thi khong can phan giai
-             if (tenDinh.Count - 1 == graph.Count)
+             // Nếu số cạnh bằng số đỉnh -1 thì không phải giải tiếp
+             if (vertexName.Count - 1 == graph.Count)
                  return graph;
 
              #region tính với mỗi đỉnh tìm cạnh có trọng số nhỏ nhất trả về solvedGraph
-             for (int i = 0; i < tenDinh.Count; i++)// với mỗi đỉnh tìm cạnh có trọng số nhỏ nhất
+             for (int i = 0; i < vertexName.Count; i++)// với mỗi đỉnh tìm cạnh có trọng số nhỏ nhất
              {
                  int minCost=int.MaxValue;
                  Edge minCostEdge = graph[0]; // cạnh có trọng số nhỏ nhất liên thuộc với đỉnh i
-                 foreach (Edge ed in graph) // tim minCostEdge
+                 foreach (Edge ed in graph) // Tìm minCostEdge
                  {
                      
-                     if (ed.V1.Name2 == tenDinh[i] || ed.V2.Name2 == tenDinh[i]) // neu cạnh này la liên thuộc với đỉnh i
+                     if (ed.V1.Name2 == vertexName[i] || ed.V2.Name2 == vertexName[i]) // nếu cạnh này là liên thuộc với đỉnh i
                      {
                          if (minCost > ed.Cost)
                          {
@@ -552,7 +550,7 @@
                      }
                  }
                  
-                 // join lại, 
+                 // Kết hợp (join) lại, 
 
                  Vertex root1 = minCostEdge.V1.GetRoot();
                  Vertex root2 = minCostEdge.V2.GetRoot();
@@ -578,9 +576,9 @@
                          break;
                      }
                  }
-                 if (kiemtra == false) // neu cạnh này không tồn tại trong solvegraph
+                 if (kiemtra == false) // nếu cạnh này không tồn tại trong solvegraph
                  {
-                     dsCanhCL.Add(ed);
+                     remainListEdge.Add(ed);
                  }
 
              }
@@ -588,39 +586,39 @@
 
              #region tính đồ thị hình thành sau khi bỏ cạnh trùng và khuyên, trả về solvedgraph2
              // trong số các cạnh còn lại nếu một đỉnh thuộc root này, một thuộc root kia. tìm cạnh có trọng số nhỏ nhất
-             foreach (Edge ed in dsCanhCL)
+             foreach (Edge ed in remainListEdge)
              {
-                 // them lenh get root
+                
                  Vertex root1 = ed.V1.GetRoot();
                  Vertex root2 = ed.V2.GetRoot();
                  if (root1.Name != root2.Name)
                  {
-                     Edge minCostDScanh = ed;
-                     foreach (Edge ed2 in dsCanhCL)
+                     Edge minCostListEgdeRemain = ed; // cạnh có trọng số nhỏ nhất trong các cạnh trùng
+                     foreach (Edge ed2 in remainListEdge)
                      {
                          Vertex root3 = ed2.V1.GetRoot();
                          Vertex root4 = ed2.V2.GetRoot();
                          if (((root3.Name == root1.Name) && (root4.Name == root2.Name)) || ((root3.Name == root2.Name) && (root4.Name == root1.Name)))
                          {
-                             if (minCostDScanh.Cost > ed2.Cost)
-                                 minCostDScanh = ed2;
+                             if (minCostListEgdeRemain.Cost > ed2.Cost)
+                                 minCostListEgdeRemain = ed2;
                          }
                      }
-                     // kiem tra neu solvedgraph2 không có cạnh này mới add cạnh này vô 
-                     bool ketqua = false;
-                     foreach (Edge ed3 in solvedGraph2)
+                     // kiểm tra nếu solvedGraphBoruvka không có cạnh này mới add cạnh này vô 
+                     bool testResult = false; //
+                     foreach (Edge ed3 in solvedGraphBoruvka)
                      {
                          
-                         if (ed3 == minCostDScanh)
+                         if (ed3 == minCostListEgdeRemain)
                          {
-                             ketqua = true;
+                             testResult = true;
                              break;
                          }
 
                          
                      }
-                     if(ketqua==false)
-                        solvedGraph2.Add(minCostDScanh);
+                     if(testResult==false)
+                        solvedGraphBoruvka.Add(minCostListEgdeRemain);
 
                  }
 
@@ -628,7 +626,7 @@
              #endregion
 
 
-             return solvedGraph2;
+             return solvedGraphBoruvka;
          }
 
         #endregion

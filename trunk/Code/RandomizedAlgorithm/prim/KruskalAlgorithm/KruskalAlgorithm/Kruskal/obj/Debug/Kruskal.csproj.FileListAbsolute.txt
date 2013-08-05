@@ -44,3 +44,9 @@ C:\Users\ThanhMy\Google Drive\Code_RA\prim\KruskalAlgorithm\KruskalAlgorithm\Kru
 C:\Users\ThanhMy\Google Drive\Code_RA\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.csprojResolveAssemblyReference.cache
 C:\Users\ThanhMy\Google Drive\Code_RA\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.dll
 C:\Users\ThanhMy\Google Drive\Code_RA\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.pdb
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\bin\Debug\Kruskal.dll.config
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\bin\Debug\Kruskal.dll
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\bin\Debug\Kruskal.pdb
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.csprojResolveAssemblyReference.cache
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.dll
+D:\SVN server\Code\RandomizedAlgorithm\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\obj\Debug\Kruskal.pdb
