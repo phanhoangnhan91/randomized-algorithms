@@ -22,7 +22,7 @@ namespace test_prime
             //run first time
             BigInteger bi = new BigInteger("5",10);
             Boolean bl = bi.FermatLittleTest(2);
-            Boolean laSonguyento = Kiemtrasonguyento(2);
+            Boolean laSonguyento = TestPrimeClassical(2);
             //Sort Listview 
             listViewDuLieu.ListViewItemSorter = new IntegerComparer(1);
             listViewDuLieu.Sort();
@@ -32,19 +32,19 @@ namespace test_prime
         {
             double N = Convert.ToDouble(txtN.Text);
             Stopwatch sw = Stopwatch.StartNew();
-            Boolean laSonguyento = Kiemtrasonguyento(N);
+            Boolean isPrime = TestPrimeClassical(N);
             sw.Stop();
             long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            ThemDuLieuVaoList("Classical",N, microseconds.ToString());
-            if (laSonguyento)
+            AddDataIntoList("Classical",N, microseconds.ToString());
+            if (isPrime)
                 lbKQ.Text = N + " is prime. [Classical]";
             else
                 lbKQ.Text = N + " is composite. [Classical]";
-            drawchat();
+            DrawChart();
 
         }
 
-        private void ThemDuLieuVaoList(string algorithm,double N, string TG)
+        private void AddDataIntoList(string algorithm,double N, string TG)
         {
             ListViewItem i = new ListViewItem(algorithm);
             i.SubItems.Add(N.ToString());
@@ -52,7 +52,7 @@ namespace test_prime
             this.listViewDuLieu.Items.Add(i);
         }
 
-        private Boolean Kiemtrasonguyento(double N) // false là hợp số, true la so nguyen to
+        private Boolean TestPrimeClassical(double N) // false là hợp số, true la so nguyen to
         {
             for (int i = 2; i <= Convert.ToInt32(Math.Sqrt(N)); i++)
                 if (N % i == 0)
@@ -81,22 +81,20 @@ namespace test_prime
         }
         private void btKiemtraRa_Click(object sender, EventArgs e)
         {
-            // để thêm tính đúng đắn có thể lần lượt chia cho 2,3,4,5,6,7,8,9,
+            
             double n = Convert.ToDouble(txtN.Text);
             int m = Convert.ToInt32(FrTestPrime.ShowDialog("The number of times to test for primality:", "Test for primality"));
-            Stopwatch sw = Stopwatch.StartNew();
-            // Boolean bl = KiemtrasonguyentoRA(n, m);
-           // Boolean bl = KiemtrasonguyentoRA(n, m);
+            Stopwatch sw = Stopwatch.StartNew();     
             BigInteger bi = new BigInteger(txtN.Text,10);
-          Boolean bl=  bi.FermatLittleTest(m);
+            Boolean bl=  bi.FermatLittleTest(m);
             sw.Stop();
             long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            ThemDuLieuVaoList("Fermat",n, microseconds.ToString());
+            AddDataIntoList("Fermat",n, microseconds.ToString());
             if (bl)
                 lbKQ.Text = n + " is prime. [Fermat]";
             else
                 lbKQ.Text = n + " is composite. [Fermat]";
-            drawchat();
+            DrawChart();
         }
         private int GCD(int a, int b)
         {
@@ -264,7 +262,7 @@ namespace test_prime
             listViewDuLieu.Items.Clear();
             chart1.Series.Clear();
         }
-        public void drawchat()
+        public void DrawChart()
         {
             chart1.Series.Clear();
             chart1.Visible = true;
@@ -313,7 +311,7 @@ namespace test_prime
 
         private void FrTestPrime_Load(object sender, EventArgs e)
         {
-            Kiemtrasonguyento(47);
+            TestPrimeClassical(47);
             BigInteger bi = new BigInteger("47", 10);
             bi.FermatLittleTest(10);
         }
