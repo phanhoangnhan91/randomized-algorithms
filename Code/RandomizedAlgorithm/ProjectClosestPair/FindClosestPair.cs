@@ -299,11 +299,11 @@ namespace ProjectClosestPair
             //Tính khoảng cách ngắn nhất trong mảng S[], bằng cách đệ qui gọi hàm RandomizedAl 1 lần
             //Đặt làm denta
             double denta=double.MaxValue;
-            //Trong lần đệ qui đó dùng chiến lược trực tiếp để tìm khoảng cách denta
+            //Trong lần đệ qui đó dùng chiến lược chia để trị để tìm khoảng cách denta
             if (inrecurisve)
             {
                 inrecurisve = false;
-                IPoint[] tmp = bruteForce(S, ref denta);
+                IPoint[] tmp = closestDC(S, out denta);
             }
             if (recursive)
             {
@@ -316,11 +316,10 @@ namespace ProjectClosestPair
             //Xác định hoành độ lớn nhất và tung độ lớn nhất trong các điểm 
             //Chọn giá trị lớn và đem chia cho denta
             int maxX, maxY;
-            int SquareInRow = 0;
             FindMaxXY(P, out maxX, out maxY);
 
             int maxValue = maxX >= maxY ? maxX : maxY;
-            SquareInRow = (int)Math.Round(maxValue / denta); 
+            int SquareInRow = (int)Math.Round(maxValue / denta); 
     
             if (SquareInRow * denta <= maxValue)
                 SquareInRow++;
@@ -339,10 +338,9 @@ namespace ProjectClosestPair
             }
 
             //Tạo các bộ T1, T2, T3, T4
-            List<Square> T1, T2;
-            List<Square> T3, T4;
-
+            List<Square> T1, T2, T3, T4;
             createAllT(T, SquareInRow, out T1, out T2, out T3, out T4);
+
             IPoint[] resultP = new IPoint[2];
 
             //Tìm khoảng cách ngắn nhất ở từng ô vuông ở tập T1, T2, T3, T4
