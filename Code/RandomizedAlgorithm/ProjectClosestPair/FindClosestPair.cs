@@ -276,26 +276,13 @@ namespace ProjectClosestPair
             {
                 return bruteForce(P, ref distantRA);
             }
-
             //Chọn ngẫu nhiên n^2/3 điểm từ input
             //Tạo thành mảng S[]
             int rp = (int)Math.Round(Math.Pow(P.Length, (2 * 1.0 / 3)), 0);
-            IPoint[] S = new IPoint[rp];
 
-            for (int i = 0; i < S.Length; i++)
-            {
-                bool isSame = false;
-                int r = random.Next(0, P.Length - 1);
-                for (int j = 0; j < i; j++)
-                {
-                    if (S[j] == P[r])
-                        isSame = true;
-                }
-                if (!isSame)
-                    S[i] = P[r];
-                else i--;
-            }
-
+            //O(nlog n)
+            IPoint[] S = P.OrderBy(x => random.Next()).Take(rp).ToArray();
+            
             //Tính khoảng cách ngắn nhất trong mảng S[], bằng cách đệ qui gọi hàm RandomizedAl 1 lần
             //Đặt làm denta
             double denta=double.MaxValue;
