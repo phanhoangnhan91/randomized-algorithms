@@ -75,3 +75,13 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.csproj.GenerateResource.Cache
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.pdb
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\bin\Debug\test prime.exe.config
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\bin\Debug\test prime.exe
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\bin\Debug\test prime.pdb
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.csprojResolveAssemblyReference.cache
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\tetst_prime.dothi.resources
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test_prime.FrTestPrime.resources
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test_prime.Properties.Resources.resources
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.csproj.GenerateResource.Cache
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.exe
+D:\SVN server\Code\RandomizedAlgorithm\test prime\test prime\obj\Debug\test prime.pdb

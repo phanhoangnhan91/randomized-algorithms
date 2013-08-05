@@ -118,7 +118,7 @@
 // [6] R. Baillie and S. S. Wagstaff Jr, "Lucas Pseudoprimes", Mathematics of Computation,
 //     Vol. 35, No. 152, Oct 1980, pp. 1391-1417.
 //
-// [7] H. C. Williams, "�douard Lucas and Primality Testing", Canadian Mathematical
+// [7] H. C. Williams, "Édouard Lucas and Primality Testing", Canadian Mathematical
 //     Society Series of Monographs and Advance Texts, vol. 22, John Wiley & Sons, New York,
 //     NY, 1998.
 //
@@ -1832,21 +1832,21 @@ public class BigInteger
         public bool FermatLittleTest(int confidence)
         {
                 BigInteger thisVal;
-                if((this.data[maxLength-1] & 0x80000000) != 0)        // negative
+                if((this.data[maxLength-1] & 0x80000000) != 0)        // Số âm
                         thisVal = -this;
                 else
                         thisVal = this;
 
                 if(thisVal.dataLength == 1)
                 {
-                        // test small numbers
+                        // kiểm tra số nhỏ
                         if(thisVal.data[0] == 0 || thisVal.data[0] == 1)
                                 return false;
                         else if(thisVal.data[0] == 2 || thisVal.data[0] == 3)
                                 return true;
                 }
 
-                if((thisVal.data[0] & 0x1) == 0)     // even numbers
+                if((thisVal.data[0] & 0x1) == 0)     // số chẵn
                         return false;
 
 	        int bits = thisVal.bitCount();
@@ -1858,11 +1858,11 @@ public class BigInteger
 	        {
 		        bool done = false;
 
-		        while(!done)		// generate a < n
+		        while(!done)		// phát sinh a < n
 		        {
 			        int testBits = 0;
 
-			        // make sure "a" has at least 2 bits
+			        // đảm bảo "a" có tối thiểu 2 bit
 			        while(testBits < 2)
 				        testBits = (int)(rand.NextDouble() * bits);
 
@@ -1870,28 +1870,28 @@ public class BigInteger
 
 			        int byteLen = a.dataLength;
 
-                                // make sure "a" is not 0
+                                // đảm bảo "a" khác 0
 			        if(byteLen > 1 || (byteLen == 1 && a.data[0] != 1))
                                         done = true;
 		        }
 
-                        // check whether a factor exists (fix for version 1.03)
+                        // kiểu tra xem a có ước không.
 		        BigInteger gcdTest = a.gcd(thisVal);
                         if(gcdTest.dataLength == 1 && gcdTest.data[0] != 1)
                                 return false;
 
-		        // calculate a^(p-1) mod p
+		        // tính a^(p-1) mod p
 		        BigInteger expResult = a.modPow(p_sub1, thisVal);
 
 		        int resultLen = expResult.dataLength;
 
-                        // is NOT prime is a^(p-1) mod p != 1
+                        // Không phải là số nguyên tố khi a^(p-1) mod p != 1
 
 		        if(resultLen > 1 || (resultLen == 1 && expResult.data[0] != 1))
 		        {
-		                //Console.WriteLine("a = " + a.ToString());
+		                
 			        return false;
-                        }
+                }
 	        }
 
 	        return true;

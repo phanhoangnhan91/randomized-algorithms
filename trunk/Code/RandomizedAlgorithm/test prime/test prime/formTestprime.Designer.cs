@@ -32,14 +32,14 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.txtN = new System.Windows.Forms.TextBox();
             this.lbKQ = new System.Windows.Forms.Label();
-            this.btKiemtra = new System.Windows.Forms.Button();
-            this.btKiemtraRa = new System.Windows.Forms.Button();
+            this.btnClassical = new System.Windows.Forms.Button();
+            this.btnFermat = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.btDel = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.listViewDuLieu = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,27 +68,27 @@
             this.lbKQ.Size = new System.Drawing.Size(0, 17);
             this.lbKQ.TabIndex = 1;
             // 
-            // btKiemtra
+            // btnClassical
             // 
-            this.btKiemtra.Location = new System.Drawing.Point(272, 38);
-            this.btKiemtra.Margin = new System.Windows.Forms.Padding(4);
-            this.btKiemtra.Name = "btKiemtra";
-            this.btKiemtra.Size = new System.Drawing.Size(100, 28);
-            this.btKiemtra.TabIndex = 20;
-            this.btKiemtra.Text = "Classical";
-            this.btKiemtra.UseVisualStyleBackColor = true;
-            this.btKiemtra.Click += new System.EventHandler(this.btKiemtra_Click);
+            this.btnClassical.Location = new System.Drawing.Point(272, 38);
+            this.btnClassical.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClassical.Name = "btnClassical";
+            this.btnClassical.Size = new System.Drawing.Size(100, 28);
+            this.btnClassical.TabIndex = 20;
+            this.btnClassical.Text = "Classical";
+            this.btnClassical.UseVisualStyleBackColor = true;
+            this.btnClassical.Click += new System.EventHandler(this.btKiemtra_Click);
             // 
-            // btKiemtraRa
+            // btnFermat
             // 
-            this.btKiemtraRa.Location = new System.Drawing.Point(391, 38);
-            this.btKiemtraRa.Margin = new System.Windows.Forms.Padding(4);
-            this.btKiemtraRa.Name = "btKiemtraRa";
-            this.btKiemtraRa.Size = new System.Drawing.Size(100, 28);
-            this.btKiemtraRa.TabIndex = 30;
-            this.btKiemtraRa.Text = "Fermat";
-            this.btKiemtraRa.UseVisualStyleBackColor = true;
-            this.btKiemtraRa.Click += new System.EventHandler(this.btKiemtraRa_Click);
+            this.btnFermat.Location = new System.Drawing.Point(391, 38);
+            this.btnFermat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFermat.Name = "btnFermat";
+            this.btnFermat.Size = new System.Drawing.Size(100, 28);
+            this.btnFermat.TabIndex = 30;
+            this.btnFermat.Text = "Fermat";
+            this.btnFermat.UseVisualStyleBackColor = true;
+            this.btnFermat.Click += new System.EventHandler(this.btKiemtraRa_Click);
             // 
             // label2
             // 
@@ -116,7 +116,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Controls.Add(this.btDel);
+            this.groupBox2.Controls.Add(this.btnClear);
             this.groupBox2.Controls.Add(this.listViewDuLieu);
             this.groupBox2.Location = new System.Drawing.Point(19, 117);
             this.groupBox2.Name = "groupBox2";
@@ -145,15 +145,15 @@
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
-            // btDel
+            // btnClear
             // 
-            this.btDel.Location = new System.Drawing.Point(336, 356);
-            this.btDel.Name = "btDel";
-            this.btDel.Size = new System.Drawing.Size(97, 33);
-            this.btDel.TabIndex = 40;
-            this.btDel.Text = "Clear all";
-            this.btDel.UseVisualStyleBackColor = true;
-            this.btDel.Click += new System.EventHandler(this.btDel_Click);
+            this.btnClear.Location = new System.Drawing.Point(336, 356);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(97, 33);
+            this.btnClear.TabIndex = 40;
+            this.btnClear.Text = "Clear all";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btDel_Click);
             // 
             // listViewDuLieu
             // 
@@ -188,8 +188,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 548);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.btKiemtraRa);
-            this.Controls.Add(this.btKiemtra);
+            this.Controls.Add(this.btnFermat);
+            this.Controls.Add(this.btnClassical);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbKQ);
@@ -213,12 +213,12 @@
 
         private System.Windows.Forms.TextBox txtN;
         private System.Windows.Forms.Label lbKQ;
-        private System.Windows.Forms.Button btKiemtra;
-        private System.Windows.Forms.Button btKiemtraRa;
+        private System.Windows.Forms.Button btnClassical;
+        private System.Windows.Forms.Button btnFermat;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btDel;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.ListView listViewDuLieu;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
