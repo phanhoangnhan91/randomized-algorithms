@@ -145,6 +145,7 @@
             this.tbMTC.Size = new System.Drawing.Size(154, 124);
             this.tbMTC.TabIndex = 50;
             this.tbMTC.WordWrap = false;
+            this.tbMTC.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // label3
             // 
@@ -173,6 +174,7 @@
             this.tbMTB.Size = new System.Drawing.Size(154, 124);
             this.tbMTB.TabIndex = 40;
             this.tbMTB.WordWrap = false;
+            this.tbMTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // tbResultF
             // 
@@ -183,6 +185,7 @@
             this.tbResultF.Size = new System.Drawing.Size(225, 182);
             this.tbResultF.TabIndex = 90;
             this.tbResultF.WordWrap = false;
+            this.tbResultF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // tbResultBF
             // 
@@ -193,6 +196,7 @@
             this.tbResultBF.Size = new System.Drawing.Size(225, 182);
             this.tbResultBF.TabIndex = 80;
             this.tbResultBF.WordWrap = false;
+            this.tbResultBF.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // tbMTA
             // 
@@ -203,6 +207,7 @@
             this.tbMTA.Size = new System.Drawing.Size(154, 124);
             this.tbMTA.TabIndex = 30;
             this.tbMTA.WordWrap = false;
+            this.tbMTA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // tbSize
             // 

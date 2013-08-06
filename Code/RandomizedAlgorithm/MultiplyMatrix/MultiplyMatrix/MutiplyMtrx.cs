@@ -22,7 +22,19 @@ namespace MultiplyMatrix
             random = new Random();
             listViewDuLieu.ListViewItemSorter = new IntegerComparer(1);
             listViewDuLieu.Sort();
+            //Chạy nháp
+            int[,]tmpA=new int[2,2]{{2,4},{3,4}},tmpB=new int[2,2]{{3,5},{2,5}},tmpC=new int[2,2]{{4,6},{12,13}};
+            //Brute Force
+            int[,]MTResultBF = MultiplyMT(tmpA, tmpB, tmpA.GetLength(0),tmpA.GetLength(1), tmpB.GetLength(1));
+            bool compareBF = CompareMT(MTResultBF, tmpC);
+
+            //Freivalds
+            int loop = 2;
+            bool compareF = MatrixEqualityTest(tmpA, tmpB, tmpC, ref loop);
+
         }
+
+
 
         #region Phép tính ma trận
         //SO sánh hai ma trận
@@ -156,7 +168,6 @@ namespace MultiplyMatrix
             }
         }
 
-        bool startBF = true;
         private void btMultiply_Click(object sender, EventArgs e)
         {
             try
@@ -184,12 +195,6 @@ namespace MultiplyMatrix
                 int[,] MTC = createMT("C",tbMTC.Text,MTsize);
                 if (MTC == null)
                     return;
-                if (startBF)
-                {
-                    startBF = false;
-                    MTResult = MultiplyMT(MTA, MTB, MTsize, MTsize, MTsize);
-                    compare = CompareMT(MTResult, MTC);
-                }
 
                 Stopwatch sw = Stopwatch.StartNew();
                 MTResult = MultiplyMT(MTA, MTB, MTsize, MTsize, MTsize);
@@ -217,7 +222,6 @@ namespace MultiplyMatrix
             }
         }
 
-        bool startF = true;
         string strVector = "";
         private void btRA_Click(object sender, EventArgs e)
         {
@@ -233,7 +237,7 @@ namespace MultiplyMatrix
                 {
                     throw new Exception("The size of matrices must be equal or greater than 2");
                 }
-                dem = 1;
+                dem = 0;
                 lbResult2.Text = "";
                 tbResultF.Clear();
                 string inputK = Microsoft.VisualBasic.Interaction.InputBox("k=", "The number of trials ", "1", 320, 320);
@@ -251,11 +255,11 @@ namespace MultiplyMatrix
                 int[,] MTC = createMT("C", tbMTC.Text, MTsize);
                 if (MTC == null)
                     return;
-                if (startF) //chạy nháp ko tính 
-                {
-                    bool compareDrafts = MatrixEqualityTest(MTA, MTB, MTC,ref k);
-                    startF = false;
-                }
+                //if (startF) //chạy nháp ko tính 
+                //{
+                //    bool compareDrafts = MatrixEqualityTest(MTA, MTB, MTC,ref k);
+                //    startF = false;
+                //}
                 Stopwatch sw = Stopwatch.StartNew();
                 bool compare = MatrixEqualityTest(MTA, MTB, MTC,ref k);
                 sw.Stop();
@@ -286,7 +290,7 @@ namespace MultiplyMatrix
             strVector = "";
             int MTsize=MTA.GetLength(0);
             for (int j = 0; j < k; j++)
-            {
+            {               
                 //Tạo vector ngẫu nhiên r
                 int[,] vectorR = new int[MTsize, 1];
                 for (int i = 0; i < MTsize; i++)
@@ -294,8 +298,9 @@ namespace MultiplyMatrix
                     vectorR[i, 0] = random.Next(0, 2);
                 }
                 //mỗi lần chạy in vector ngẫu nhiên 
-                if(!startBF)
-                    strVector +="random vector in trial "+(j+1).ToString()+":\r\n" +PrintMatrix(vectorR) + "\r\n";                
+                strVector += "random vector in trial " + (j + 1).ToString() + ":\r\n" + PrintMatrix(vectorR) + "\r\n";
+                dem++;
+                
                 int[,] MTResultL, MTResultR;
                 //A x (B x r)
                 MTResultL = MultiplyMT(MTB, vectorR, MTsize, MTsize, 1);
@@ -307,9 +312,7 @@ namespace MultiplyMatrix
                 //A x (B x r)!=C x r
                 if (!CompareMT(MTResultR, MTResultL))
                     return false;
-                dem++;
             }
-            dem--;
             return true;
         }
 
@@ -362,7 +365,13 @@ namespace MultiplyMatrix
             }
         }
 
-
-
+        private void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.A))
+            {
+                ((TextBox)sender).SelectAll();
+                e.Handled = true;
+            }
+        }
     }
 }
