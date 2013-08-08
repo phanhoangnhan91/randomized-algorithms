@@ -282,21 +282,21 @@ namespace ProjectClosestPair
 
             //O(nlog n)
             IPoint[] S = P.OrderBy(x => random.Next()).Take(rp).ToArray();
-            
+
             //Tính khoảng cách ngắn nhất trong mảng S[], bằng cách đệ qui gọi hàm RandomizedAl 1 lần
-            //Đặt làm denta
-            double denta=double.MaxValue;
-            //Trong lần đệ qui đó dùng chiến lược chia để trị để tìm khoảng cách denta
+            //Đặt làm delta
+            double delta=double.MaxValue;
+            //Trong lần đệ qui đó dùng chiến lược chia để trị để tìm khoảng cách delta
             if (inrecurisve)
             {
                 inrecurisve = false;
-                IPoint[] tmp = closestDC(S, out denta);
+                IPoint[] tmp = closestDC(S, out delta);
             }
             if (recursive)
             {
                 recursive = false;
                 inrecurisve = true;
-                IPoint[] resultS = RandomizedAl(S, out denta);
+                IPoint[] resultS = RandomizedAl(S, out delta);
             }
 
             //Xác định số lượng ô vuông có cạnh bằng denta:
@@ -306,9 +306,9 @@ namespace ProjectClosestPair
             FindMaxXY(P, out maxX, out maxY);
 
             int maxValue = maxX >= maxY ? maxX : maxY;
-            int SquareInRow = (int)Math.Round(maxValue / denta); 
+            int SquareInRow = (int)Math.Round(maxValue / delta); 
     
-            if (SquareInRow * denta <= maxValue)
+            if (SquareInRow * delta <= maxValue)
                 SquareInRow++;
 
             //Tạo bộ T gồm các ô vuông có cạnh= denta
@@ -316,10 +316,11 @@ namespace ProjectClosestPair
 
             for (int i = 0; i < SquareInRow*SquareInRow; i++)
                 T[i] = new Square();
+
             for (int i = 0; i < P.Length; i++)
             {
-                double a =P[i]._X / denta;
-                double b = P[i]._Y / denta;
+                double a =P[i]._X / delta;
+                double b = P[i]._Y / delta;
                 //Xác định ô vuông chứa điểm đang xét
                 T[(int)a * SquareInRow + (int)b].lstPoints.Add(P[i]);
             }
