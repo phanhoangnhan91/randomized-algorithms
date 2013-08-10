@@ -37,7 +37,7 @@
             // 
             // bttQuicksort
             // 
-            this.bttQuicksort.Location = new System.Drawing.Point(13, 46);
+            this.bttQuicksort.Location = new System.Drawing.Point(41, 30);
             this.bttQuicksort.Name = "bttQuicksort";
             this.bttQuicksort.Size = new System.Drawing.Size(106, 50);
             this.bttQuicksort.TabIndex = 10;
@@ -47,7 +47,7 @@
             // 
             // bttPrime
             // 
-            this.bttPrime.Location = new System.Drawing.Point(139, 46);
+            this.bttPrime.Location = new System.Drawing.Point(167, 30);
             this.bttPrime.Name = "bttPrime";
             this.bttPrime.Size = new System.Drawing.Size(117, 50);
             this.bttPrime.TabIndex = 20;
@@ -57,7 +57,7 @@
             // 
             // bttSpanningTree
             // 
-            this.bttSpanningTree.Location = new System.Drawing.Point(210, 121);
+            this.bttSpanningTree.Location = new System.Drawing.Point(238, 105);
             this.bttSpanningTree.Name = "bttSpanningTree";
             this.bttSpanningTree.Size = new System.Drawing.Size(184, 53);
             this.bttSpanningTree.TabIndex = 50;
@@ -67,7 +67,7 @@
             // 
             // bttMutiplyMatrix
             // 
-            this.bttMutiplyMatrix.Location = new System.Drawing.Point(13, 121);
+            this.bttMutiplyMatrix.Location = new System.Drawing.Point(41, 105);
             this.bttMutiplyMatrix.Name = "bttMutiplyMatrix";
             this.bttMutiplyMatrix.Size = new System.Drawing.Size(191, 53);
             this.bttMutiplyMatrix.TabIndex = 40;
@@ -77,7 +77,7 @@
             // 
             // bttCP
             // 
-            this.bttCP.Location = new System.Drawing.Point(276, 46);
+            this.bttCP.Location = new System.Drawing.Point(304, 30);
             this.bttCP.Name = "bttCP";
             this.bttCP.Size = new System.Drawing.Size(117, 50);
             this.bttCP.TabIndex = 30;
@@ -89,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 220);
+            this.ClientSize = new System.Drawing.Size(462, 197);
             this.Controls.Add(this.bttMutiplyMatrix);
             this.Controls.Add(this.bttSpanningTree);
             this.Controls.Add(this.bttCP);
@@ -98,7 +98,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Main Menu";
+            this.Text = "Application Program of Randomized Algorithms";
             this.ResumeLayout(false);
 
         }

@@ -272,7 +272,7 @@ namespace ProjectClosestPair
         {
             distantRA = double.MaxValue;
 
-            if (P.Length <= 3)
+            if (P.Length <= 3 && !inrecurisve)
             {
                 return bruteForce(P, ref distantRA);
             }
@@ -290,7 +290,7 @@ namespace ProjectClosestPair
             if (inrecurisve)
             {
                 inrecurisve = false;
-                IPoint[] tmp = closestDC(S, out delta);
+                IPoint[] tmp = bruteForce(S, ref delta);
             }
             if (recursive)
             {
@@ -311,153 +311,67 @@ namespace ProjectClosestPair
             if (SquareInRow * delta <= maxValue)
                 SquareInRow++;
 
-            //Tạo bộ T gồm các ô vuông có cạnh= denta
-            Square[] T = new Square[SquareInRow*SquareInRow];
-
-            for (int i = 0; i < SquareInRow*SquareInRow; i++)
-                T[i] = new Square();
+            //Xây dựng tập T
+            Dictionary<int, List<IPoint>> boT = new Dictionary<int, List<IPoint>>();
 
             for (int i = 0; i < P.Length; i++)
             {
-                double a =P[i]._X / delta;
+                double a = P[i]._X / delta;
                 double b = P[i]._Y / delta;
-                //Xác định ô vuông chứa điểm đang xét
-                T[(int)a * SquareInRow + (int)b].lstPoints.Add(P[i]);
+                int index = ((int)a * SquareInRow + (int)b);
+                if (!boT.ContainsKey(index))
+                {
+                    boT[index] = new List<IPoint>();
+                }
+                boT[index].Add(P[i]);
             }
 
-            //Tạo các bộ T1, T2, T3, T4
-            List<Square> T1, T2, T3, T4;
-            createAllT(T, SquareInRow, out T1, out T2, out T3, out T4);
+            Dictionary<string, List<IPoint>> doubleSize = new Dictionary<string, List<IPoint>>();
+
+            //Mở rộng các hình vuông s trong bộ T -Xây dựng T1,T2,T3,T4
+            foreach (var s in boT)
+            {
+                int keyT = s.Key;
+                string key = keyT.ToString();
+
+                //Nếu s hiện tại có hai điểm hoặc tồn tại các tập điểm lân cận s-trừ các s ở biên phải
+                if (s.Value.Count > 1 || ((keyT % SquareInRow != SquareInRow - 1) && (boT.ContainsKey(keyT + 1) || boT.ContainsKey(keyT + SquareInRow) || boT.ContainsKey(keyT + SquareInRow + 1))))
+                {
+                    doubleSize[key] = new List<IPoint>();
+                    doubleSize[key].AddRange(s.Value);
+
+                    //Thêm neighbor
+                    if (boT.ContainsKey(keyT + 1))
+                        doubleSize[key].AddRange(boT[keyT + 1]);
+                    if (boT.ContainsKey(keyT + SquareInRow))
+                        doubleSize[key].AddRange(boT[keyT + SquareInRow]);
+                    if (boT.ContainsKey(keyT + SquareInRow + 1))
+                        doubleSize[key].AddRange(boT[keyT + SquareInRow + 1]);
+                }
+
+                //Trường hợp s có tập điểm lân cận nằm chéo trái trên, ko tính các s ở biên trái
+                if (boT.ContainsKey(keyT + SquareInRow - 1) && keyT % SquareInRow != 0)
+                {
+                    string specialKey = key + "_special";
+                    doubleSize[specialKey] = new List<IPoint>();
+                    doubleSize[specialKey].AddRange(boT[keyT]);
+                    doubleSize[specialKey].AddRange(boT[keyT + SquareInRow - 1]);
+                }
+            }
 
             IPoint[] resultP = new IPoint[2];
-
-            //Tìm khoảng cách ngắn nhất ở từng ô vuông ở tập T1, T2, T3, T4
-            foreach (var item in T1)
+            foreach (var pair in doubleSize)
             {
-                if (item.lstPoints.Count > 1)
+                IPoint[] resultTmp = bruteForce(pair.Value.ToArray(), ref distantRA);
+                if (resultTmp != null)
                 {
-                   IPoint[] resultTmp = bruteForce(item.lstPoints.ToArray(), ref distantRA);
-                   if (resultTmp != null)
-                   {
-                       resultP = resultTmp;                      
-                   }
-                }
-            }
-            foreach (var item in T2)
-            {
-                if (item.lstPoints.Count > 1)
-                {
-                    IPoint[] resultTmp = bruteForce(item.lstPoints.ToArray(), ref distantRA);
-                    if (resultTmp != null)
-                        resultP = resultTmp;
-                }
-            }
-            foreach (var item in T3)
-            {
-                if (item.lstPoints.Count > 1)
-                {
-                    IPoint[] resultTmp = bruteForce(item.lstPoints.ToArray(), ref distantRA);
-                    if (resultTmp != null)
-                        resultP = resultTmp;
-                }
-            }
-            foreach (var item in T4)
-            {
-                if (item.lstPoints.Count > 1)
-                {
-                    IPoint[] resultTmp = bruteForce(item.lstPoints.ToArray(), ref distantRA);
-                    if (resultTmp != null)
-                        resultP = resultTmp;
+                    resultP = resultTmp;
                 }
             }
             return resultP;
+         
         }
 
-        private List<IPoint> AllListP(Square[] T, int SquareRow, int _index)
-        {
-            List<IPoint> result = new List<IPoint>();
-            result.AddRange(T[_index].lstPoints);
-            result.AddRange(T[_index + SquareRow].lstPoints);
-            return result;
-        }
-
-        private void createAllT(Square[] T, int SquareRow, out List<Square> T1, out List<Square> T2, out List<Square> T3, out List<Square> T4)
-        {
-            T1 = new List<Square>();
-            T2 = new List<Square>();
-            T3 = new List<Square>();
-            T4 = new List<Square>();
-            bool isAddT4 = true;
-            List<IPoint> tmp = new List<IPoint>();
-            int h = 0;
-            while(h<SquareRow*(SquareRow-1))
-            {
-                //h thuộc hàng chẵn thực hiện trên T1 và T2
-                if ((h / SquareRow) % 2 == 0)
-                {
-                    if (h % SquareRow == 0)
-                    {
-                        List<IPoint> l1 = AllListP(T, SquareRow, h);
-                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
-                        Square sG1 = new Square(l1, l2);
-                        T1.Add(sG1);
-                        tmp = l2;
-                        h++;
-                        continue;
-                    }
-                    //chưa tới biên phải
-                    if (h + 1 < SquareRow * (h / SquareRow + 1))
-                    {
-                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
-                        Square s = new Square(tmp, l2);
-
-                        //h lẻ thì thêm vào T2
-                        if (h % 2 != 0 && s.lstPoints.Count != 0)
-                            T2.Add(s);
-                        else if (h % 2 == 0 && s.lstPoints.Count != 0)
-                            T1.Add(s);
-                        tmp = l2;
-                    }
-                }
-                //h thuộc hàng lẻ thực hiện trên T3 T4
-                else
-                {
-                    if (h % SquareRow == 0)
-                    {
-                        List<IPoint> l1 = AllListP(T, SquareRow, h);
-                        List<IPoint> l2 = AllListP(T, SquareRow, h + 1);
-                        Square sG1 = new Square(l1, l2);
-                        T3.Add(sG1);
-                        tmp = l2;
-                        h++;
-                        isAddT4 = true;
-                        continue;
-                    }
-                    //chưa tới biên phải dòng hiện tại
-                    if (h + 1 < SquareRow * (h / SquareRow + 1))
-                    {
-                        List<IPoint> l = AllListP(T, SquareRow, h + 1);
-                        Square s = new Square(tmp, l);
-                        //Thay phiên thêm cho T3 và T4
-                        if (isAddT4)
-                        {
-                            isAddT4 = false;
-                            if (s.lstPoints.Count != 0)
-                                T4.Add(s);
-                        }
-                        else
-                        {
-                            isAddT4 = true;
-                            if (s.lstPoints.Count != 0)
-                                T3.Add(s);
-                        }
-                        tmp = l;
-                    }
-                }
-                h++;
-            }
-        }
- 
         private void FindMaxXY(IPoint[] points, out int maxX, out int maxY)
         {
             maxX = points[0]._X;
