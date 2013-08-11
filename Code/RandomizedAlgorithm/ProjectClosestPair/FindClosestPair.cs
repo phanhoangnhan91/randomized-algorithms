@@ -268,25 +268,35 @@ namespace ProjectClosestPair
         }
 
         bool recursive = true,inrecurisve=false;
-        private IPoint[] RandomizedAl(IPoint[] P, out double distantRA)
+        private IPoint[] RandomizedAl(IPoint[] P, out double distanceRA)
         {
-            distantRA = double.MaxValue;
+            distanceRA = double.MaxValue;
 
             if (P.Length <= 3 && !inrecurisve)
-            {
-                return bruteForce(P, ref distantRA);
-            }
+                return bruteForce(P, ref distanceRA);
+
             //Chọn ngẫu nhiên n^2/3 điểm từ input
             //Tạo thành mảng S[]
             int rp = (int)Math.Round(Math.Pow(P.Length, (2 * 1.0 / 3)), 0);
+            IPoint[] S = new IPoint[rp];
 
-            //O(nlog n)
-            IPoint[] S = P.OrderBy(x => random.Next()).Take(rp).ToArray();
+            List<int> indexP = new List<int>();
+            for (int i = 0; i < P.Length; i++)
+            {
+                indexP.Add(i);
+            }
+
+            for (int i = 0; i < S.Length; i++)
+            {
+                int r = random.Next(0, indexP.Count);
+                S[i] = P[indexP[r]];
+                indexP.RemoveAt(r);
+            }
 
             //Tính khoảng cách ngắn nhất trong mảng S[], bằng cách đệ qui gọi hàm RandomizedAl 1 lần
             //Đặt làm delta
             double delta=double.MaxValue;
-            //Trong lần đệ qui đó dùng chiến lược chia để trị để tìm khoảng cách delta
+            //Trong lần đệ qui đó dùng chiến lược trực tiếp để tìm khoảng cách delta
             if (inrecurisve)
             {
                 inrecurisve = false;
@@ -299,26 +309,23 @@ namespace ProjectClosestPair
                 IPoint[] resultS = RandomizedAl(S, out delta);
             }
 
-            //Xác định số lượng ô vuông có cạnh bằng denta:
+            //Xác định số lượng ô vuông có cạnh bằng delta:
             //Xác định hoành độ lớn nhất và tung độ lớn nhất trong các điểm 
             //Chọn giá trị lớn và đem chia cho denta
             int maxX, maxY;
             FindMaxXY(P, out maxX, out maxY);
-
             int maxValue = maxX >= maxY ? maxX : maxY;
             int SquareInRow = (int)Math.Round(maxValue / delta); 
-    
             if (SquareInRow * delta <= maxValue)
                 SquareInRow++;
 
             //Xây dựng tập T
             Dictionary<int, List<IPoint>> boT = new Dictionary<int, List<IPoint>>();
-
             for (int i = 0; i < P.Length; i++)
             {
                 double a = P[i]._X / delta;
                 double b = P[i]._Y / delta;
-                int index = ((int)a * SquareInRow + (int)b);
+                int index = ((int)a + SquareInRow * (int)b);
                 if (!boT.ContainsKey(index))
                 {
                     boT[index] = new List<IPoint>();
@@ -326,50 +333,55 @@ namespace ProjectClosestPair
                 boT[index].Add(P[i]);
             }
 
-            Dictionary<string, List<IPoint>> doubleSize = new Dictionary<string, List<IPoint>>();
+            Dictionary<string, List<IPoint>> doubleSize = FindNeighbor(boT, SquareInRow);
 
-            //Mở rộng các hình vuông s trong bộ T -Xây dựng T1,T2,T3,T4
-            foreach (var s in boT)
-            {
-                int keyT = s.Key;
-                string key = keyT.ToString();
-
-                //Nếu s hiện tại có hai điểm hoặc tồn tại các tập điểm lân cận s-trừ các s ở biên phải
-                if (s.Value.Count > 1 || ((keyT % SquareInRow != SquareInRow - 1) && (boT.ContainsKey(keyT + 1) || boT.ContainsKey(keyT + SquareInRow) || boT.ContainsKey(keyT + SquareInRow + 1))))
-                {
-                    doubleSize[key] = new List<IPoint>();
-                    doubleSize[key].AddRange(s.Value);
-
-                    //Thêm neighbor
-                    if (boT.ContainsKey(keyT + 1))
-                        doubleSize[key].AddRange(boT[keyT + 1]);
-                    if (boT.ContainsKey(keyT + SquareInRow))
-                        doubleSize[key].AddRange(boT[keyT + SquareInRow]);
-                    if (boT.ContainsKey(keyT + SquareInRow + 1))
-                        doubleSize[key].AddRange(boT[keyT + SquareInRow + 1]);
-                }
-
-                //Trường hợp s có tập điểm lân cận nằm chéo trái trên, ko tính các s ở biên trái
-                if (boT.ContainsKey(keyT + SquareInRow - 1) && keyT % SquareInRow != 0)
-                {
-                    string specialKey = key + "_special";
-                    doubleSize[specialKey] = new List<IPoint>();
-                    doubleSize[specialKey].AddRange(boT[keyT]);
-                    doubleSize[specialKey].AddRange(boT[keyT + SquareInRow - 1]);
-                }
-            }
-
+            //Tìm khoảng cách ngắn nhất từ các hình vuông mở rộng
             IPoint[] resultP = new IPoint[2];
             foreach (var pair in doubleSize)
             {
-                IPoint[] resultTmp = bruteForce(pair.Value.ToArray(), ref distantRA);
+                IPoint[] resultTmp = bruteForce(pair.Value.ToArray(), ref distanceRA);
                 if (resultTmp != null)
                 {
                     resultP = resultTmp;
                 }
             }
-            return resultP;
-         
+            return resultP;        
+        }
+
+        private Dictionary<string, List<IPoint>> FindNeighbor(Dictionary<int,List<IPoint>> boT,int SquareInRow )
+        {
+            Dictionary<string, List<IPoint>> doubleSize = new Dictionary<string, List<IPoint>>();
+            //Mở rộng các hình vuông trong bộ T -Xây dựng T1,T2,T3,T4
+            foreach (var s in boT)
+            {
+                int keyT = s.Key, rightN = keyT + 1, aboveN = keyT + SquareInRow, arN = aboveN + 1, alN = aboveN - 1;
+                string key = keyT.ToString();
+
+                //Nếu s hiện tại có hai điểm hoặc tồn tại các tập điểm lân cận s-không tính các s ở biên phải
+                if (s.Value.Count > 1 || ((keyT % SquareInRow != SquareInRow - 1) && (boT.ContainsKey(rightN) || boT.ContainsKey(aboveN) || boT.ContainsKey(arN))))
+                {
+                    doubleSize[key] = new List<IPoint>();
+                    doubleSize[key].AddRange(s.Value);
+
+                    //Thêm neighbor
+                    if (boT.ContainsKey(rightN))
+                        doubleSize[key].AddRange(boT[rightN]);
+                    if (boT.ContainsKey(aboveN))
+                        doubleSize[key].AddRange(boT[aboveN]);
+                    if (boT.ContainsKey(arN))
+                        doubleSize[key].AddRange(boT[arN]);
+                }
+
+                //Trường hợp s có tập điểm lân cận nằm chéo trái trên, không tính các s ở biên trái
+                if (boT.ContainsKey(alN) && keyT % SquareInRow != 0)
+                {
+                    string specialKey = key + "_special";
+                    doubleSize[specialKey] = new List<IPoint>();
+                    doubleSize[specialKey].AddRange(boT[keyT]);
+                    doubleSize[specialKey].AddRange(boT[alN]);
+                }
+            }
+            return doubleSize;
         }
 
         private void FindMaxXY(IPoint[] points, out int maxX, out int maxY)
