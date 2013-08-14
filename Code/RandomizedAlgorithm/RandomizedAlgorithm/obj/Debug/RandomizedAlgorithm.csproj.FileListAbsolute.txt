@@ -43,3 +43,21 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Pr
 D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.exe.config
 D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.exe
 D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\RandomizedAlgorithm.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Client.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Kruskal.dll
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\MultiplyMatrix.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectQuicksort.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\test prime.exe
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\MultiplyMatrix.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Client.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\Kruskal.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectClosestPair.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\ProjectQuicksort.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\bin\Debug\test prime.pdb
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.csprojResolveAssemblyReference.cache
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.Form1.resources
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.Properties.Resources.resources
+D:\SVN server\Code\RandomizedAlgorithm\RandomizedAlgorithm\obj\Debug\RandomizedAlgorithm.csproj.GenerateResource.Cache
