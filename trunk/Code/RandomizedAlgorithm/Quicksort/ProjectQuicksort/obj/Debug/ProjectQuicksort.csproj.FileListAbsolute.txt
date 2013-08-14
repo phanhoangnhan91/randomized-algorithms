@@ -58,3 +58,13 @@ E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\D
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.csproj.GenerateResource.Cache
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.exe
 E:\RandomizedAlgorithm\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.pdb
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\bin\Debug\ProjectQuicksort.exe.config
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\bin\Debug\ProjectQuicksort.exe
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\bin\Debug\ProjectQuicksort.pdb
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.csprojResolveAssemblyReference.cache
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.dothi.resources
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.Properties.Resources.resources
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.QuicksortForm.resources
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.csproj.GenerateResource.Cache
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.exe
+D:\SVN server\Code\RandomizedAlgorithm\Quicksort\ProjectQuicksort\obj\Debug\ProjectQuicksort.pdb
