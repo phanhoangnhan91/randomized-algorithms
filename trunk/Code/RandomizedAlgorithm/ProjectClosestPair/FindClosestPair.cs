@@ -162,11 +162,12 @@ namespace ProjectClosestPair
                 
                 double distance;
                 Stopwatch swDC = new Stopwatch();
-                swDC.Start();
+                
                 //Sắp xếp mảng điểm theo hoành độ
                 var sortedX = (from arr in inputP
                                orderby arr._X
                                select arr).ToArray();
+                swDC.Start();
                 IPoint[] result = closestDC(sortedX, out distance);
                 swDC.Stop();
                 long microsecondsDC = swDC.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
