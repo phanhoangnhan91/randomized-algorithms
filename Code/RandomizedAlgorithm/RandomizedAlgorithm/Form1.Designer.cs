@@ -71,7 +71,7 @@
             this.bttMutiplyMatrix.Name = "bttMutiplyMatrix";
             this.bttMutiplyMatrix.Size = new System.Drawing.Size(191, 53);
             this.bttMutiplyMatrix.TabIndex = 40;
-            this.bttMutiplyMatrix.Text = "verify matrix multiplication";
+            this.bttMutiplyMatrix.Text = "Verify matrix multiplication";
             this.bttMutiplyMatrix.UseVisualStyleBackColor = true;
             this.bttMutiplyMatrix.Click += new System.EventHandler(this.bttMutiplyMatrix_Click);
             // 
