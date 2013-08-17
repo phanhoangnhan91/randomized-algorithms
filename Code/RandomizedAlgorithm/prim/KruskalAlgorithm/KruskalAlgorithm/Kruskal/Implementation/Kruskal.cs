@@ -492,7 +492,7 @@
              IList<Edge> solvedGraphBoruvka = new List<Edge>();// kết quả của Boruvka Step
              // Tìm danh sách cạnh còn lại
              IList<Edge> remainListEdge = new List<Edge>(); // danh sách các cạnh không được chọn, (cạnh còn lại)
-             #region Lấy ds tên đỉnh
+             #region Lấy danh sách tên đỉnh
              IList<int> vertexName=new List<int>(); // lưu tên đỉnh
              foreach (Edge ed in graph)
              {
@@ -564,7 +564,7 @@
              }
              #endregion
 
-             #region tim danh sach cac cạnh còn lại, trả về dsCanhCL
+             #region tim danh sach cac cạnh còn lại, trả về remainListEdge
              foreach (Edge ed in graph)
              {
                  bool kiemtra = false;
@@ -584,7 +584,7 @@
              }
              #endregion
 
-             #region tính đồ thị hình thành sau khi bỏ cạnh trùng và khuyên, trả về solvedgraph2
+             #region tính đồ thị hình thành sau khi bỏ cạnh trùng và khuyên, trả về solvedGraphBoruvka
              // trong số các cạnh còn lại nếu một đỉnh thuộc root này, một thuộc root kia. tìm cạnh có trọng số nhỏ nhất
              foreach (Edge ed in remainListEdge)
              {
