@@ -99,7 +99,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Randomized Algorithms Program";
+            this.Text = "Application of randomzied algorithms";
             this.ResumeLayout(false);
 
         }
