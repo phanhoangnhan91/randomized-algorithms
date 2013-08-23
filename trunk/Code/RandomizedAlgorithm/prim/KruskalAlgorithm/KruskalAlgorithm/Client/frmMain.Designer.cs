@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbGT = new System.Windows.Forms.Label();
@@ -47,6 +47,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbRunningTime = new System.Windows.Forms.Label();
+            this.lbRunningTime2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -65,6 +67,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lbRunningTime2);
+            this.tabPage1.Controls.Add(this.lbRunningTime);
             this.tabPage1.Controls.Add(this.lbGT);
             this.tabPage1.Controls.Add(this.btopen);
             this.tabPage1.Controls.Add(this.btSave);
@@ -83,10 +87,11 @@
             // lbGT
             // 
             this.lbGT.AutoSize = true;
-            this.lbGT.Location = new System.Drawing.Point(603, 288);
+            this.lbGT.Location = new System.Drawing.Point(592, 260);
             this.lbGT.Name = "lbGT";
-            this.lbGT.Size = new System.Drawing.Size(0, 17);
+            this.lbGT.Size = new System.Drawing.Size(44, 17);
             this.lbGT.TabIndex = 34;
+            this.lbGT.Text = "[Prim]";
             // 
             // btopen
             // 
@@ -111,10 +116,11 @@
             // lbTongchiphi
             // 
             this.lbTongchiphi.AutoSize = true;
-            this.lbTongchiphi.Location = new System.Drawing.Point(601, 253);
+            this.lbTongchiphi.Location = new System.Drawing.Point(588, 295);
             this.lbTongchiphi.Name = "lbTongchiphi";
-            this.lbTongchiphi.Size = new System.Drawing.Size(0, 17);
+            this.lbTongchiphi.Size = new System.Drawing.Size(70, 17);
             this.lbTongchiphi.TabIndex = 30;
+            this.lbTongchiphi.Text = "Total cost";
             // 
             // btRA
             // 
@@ -171,10 +177,10 @@
             // 
             // chart1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(310, 20);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(390, 368);
@@ -218,6 +224,24 @@
             // 
             this.columnHeader2.Text = "Running time";
             this.columnHeader2.Width = 100;
+            // 
+            // lbRunningTime
+            // 
+            this.lbRunningTime.AutoSize = true;
+            this.lbRunningTime.Location = new System.Drawing.Point(588, 324);
+            this.lbRunningTime.Name = "lbRunningTime";
+            this.lbRunningTime.Size = new System.Drawing.Size(100, 17);
+            this.lbRunningTime.TabIndex = 61;
+            this.lbRunningTime.Text = "Running Time:";
+            // 
+            // lbRunningTime2
+            // 
+            this.lbRunningTime2.AutoSize = true;
+            this.lbRunningTime2.Location = new System.Drawing.Point(592, 352);
+            this.lbRunningTime2.Name = "lbRunningTime2";
+            this.lbRunningTime2.Size = new System.Drawing.Size(48, 17);
+            this.lbRunningTime2.TabIndex = 62;
+            this.lbRunningTime2.Text = "12456";
             // 
             // frmMinimuSpanningStree
             // 
@@ -263,6 +287,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.Label lbGT;
+        private System.Windows.Forms.Label lbRunningTime2;
+        private System.Windows.Forms.Label lbRunningTime;
 
 
 

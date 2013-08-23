@@ -117,9 +117,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kruskal\Kruskal.csproj">
+    <ProjectReference Include="..\Kruskal\Prim.csproj">
       <Project>{79FE5A94-B83A-4C81-B6A7-D54B429F23BA}</Project>
-      <Name>Kruskal</Name>
+      <Name>Prim</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
