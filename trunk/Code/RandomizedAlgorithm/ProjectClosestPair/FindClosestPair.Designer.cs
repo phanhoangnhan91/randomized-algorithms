@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btDel = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 238);
+            this.label2.Location = new System.Drawing.Point(80, 276);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(256, 17);
             this.label2.TabIndex = 4;
@@ -83,7 +83,7 @@
             // lbresult
             // 
             this.lbresult.AutoSize = true;
-            this.lbresult.Location = new System.Drawing.Point(63, 315);
+            this.lbresult.Location = new System.Drawing.Point(80, 353);
             this.lbresult.Name = "lbresult";
             this.lbresult.Size = new System.Drawing.Size(55, 17);
             this.lbresult.TabIndex = 3;
@@ -91,7 +91,7 @@
             // 
             // btRA
             // 
-            this.btRA.Location = new System.Drawing.Point(397, 268);
+            this.btRA.Location = new System.Drawing.Point(414, 306);
             this.btRA.Name = "btRA";
             this.btRA.Size = new System.Drawing.Size(159, 36);
             this.btRA.TabIndex = 50;
@@ -101,7 +101,7 @@
             // 
             // btDC
             // 
-            this.btDC.Location = new System.Drawing.Point(231, 268);
+            this.btDC.Location = new System.Drawing.Point(248, 306);
             this.btDC.Name = "btDC";
             this.btDC.Size = new System.Drawing.Size(160, 36);
             this.btDC.TabIndex = 40;
@@ -111,7 +111,7 @@
             // 
             // btInput
             // 
-            this.btInput.Location = new System.Drawing.Point(66, 10);
+            this.btInput.Location = new System.Drawing.Point(83, 18);
             this.btInput.Name = "btInput";
             this.btInput.Size = new System.Drawing.Size(159, 27);
             this.btInput.TabIndex = 10;
@@ -121,7 +121,7 @@
             // 
             // btBF
             // 
-            this.btBF.Location = new System.Drawing.Point(65, 267);
+            this.btBF.Location = new System.Drawing.Point(82, 305);
             this.btBF.Name = "btBF";
             this.btBF.Size = new System.Drawing.Size(160, 36);
             this.btBF.TabIndex = 30;
@@ -155,11 +155,11 @@
             // tbInput
             // 
             this.tbInput.AcceptsTab = true;
-            this.tbInput.Location = new System.Drawing.Point(66, 43);
+            this.tbInput.Location = new System.Drawing.Point(83, 51);
             this.tbInput.Multiline = true;
             this.tbInput.Name = "tbInput";
             this.tbInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbInput.Size = new System.Drawing.Size(628, 192);
+            this.tbInput.Size = new System.Drawing.Size(628, 222);
             this.tbInput.TabIndex = 20;
             // 
             // tabPage2
@@ -185,17 +185,17 @@
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
             this.chart1.Location = new System.Drawing.Point(13, 13);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(354, 379);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
@@ -203,7 +203,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 42);
+            this.label1.Location = new System.Drawing.Point(16, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 17);
             this.label1.TabIndex = 0;
