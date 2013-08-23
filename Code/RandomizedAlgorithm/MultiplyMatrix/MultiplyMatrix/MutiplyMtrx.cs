@@ -104,13 +104,13 @@ namespace MultiplyMatrix
                     string[] number = r.Split(' ');
                     if (number.Length != MTsize)   // ma trận có kích thước khác với kích thước nhập ban đầu
                     {
-                        throw new Exception("The size of matrices must be equal to "+MTsize);
+                        throw new Exception("The size of matrices must be equal to "+MTsize +"!");
                     }
                     for (j = 0; j < MTsize; j++)
                     {
                         if (!int.TryParse(number[j], out Rs[i, j])) //ép kiểu không được
                         {
-                            throw new Exception("Invalid value in matrix " + name);
+                            throw new Exception("Invalid value in matrix " + name+"!");
                         }
                     }
                     i++;
@@ -119,7 +119,7 @@ namespace MultiplyMatrix
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return null;
             }
         }
@@ -164,7 +164,7 @@ namespace MultiplyMatrix
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -175,11 +175,11 @@ namespace MultiplyMatrix
                 int MTsize;
                 if (!int.TryParse(tbSize.Text, out MTsize)) //ktra nhập số
                 {
-                    throw new Exception("The size of matrices must be a positive integer");
+                    throw new Exception("The size of matrices must be a positive integer!");
                 }
                 if (MTsize < 2)  //kích thước ma trận phải >=2
                 {
-                    throw new Exception("The size of matrices must be equal or greater than 2");
+                    throw new Exception("The size of matrices must be equal or greater than 2!");
                 }
                 tbResultBF.Clear();
                 lbResult1.Text = "";
@@ -218,7 +218,7 @@ namespace MultiplyMatrix
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -231,11 +231,11 @@ namespace MultiplyMatrix
                 int MTsize;
                 if (!int.TryParse(tbSize.Text, out MTsize)) //ktra nhập số
                 {
-                    throw new Exception("The size of matrices must be a positive integer");
+                    throw new Exception("The size of matrices must be a positive integer!");
                 }
                 if (MTsize < 2)  //kích thước ma trận phải >=2
                 {
-                    throw new Exception("The size of matrices must be equal or greater than 2");
+                    throw new Exception("The size of matrices must be equal or greater than 2!");
                 }
                 dem = 0;
                 lbResult2.Text = "";
@@ -244,7 +244,7 @@ namespace MultiplyMatrix
                 int k;
                 if (!int.TryParse(inputK, out k))
                 {
-                     throw new Exception("Invalid value");
+                     throw new Exception("Invalid value!");
                 }
                 int[,] MTA = createMT("A", tbMTA.Text, MTsize);
                 if (MTA == null)
@@ -281,7 +281,7 @@ namespace MultiplyMatrix
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         int dem;

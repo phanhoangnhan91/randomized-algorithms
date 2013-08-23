@@ -83,15 +83,15 @@
             // lbresult
             // 
             this.lbresult.AutoSize = true;
-            this.lbresult.Location = new System.Drawing.Point(14, 315);
+            this.lbresult.Location = new System.Drawing.Point(63, 315);
             this.lbresult.Name = "lbresult";
-            this.lbresult.Size = new System.Drawing.Size(52, 17);
+            this.lbresult.Size = new System.Drawing.Size(55, 17);
             this.lbresult.TabIndex = 3;
-            this.lbresult.Text = "output:";
+            this.lbresult.Text = "Output:";
             // 
             // btRA
             // 
-            this.btRA.Location = new System.Drawing.Point(344, 268);
+            this.btRA.Location = new System.Drawing.Point(397, 268);
             this.btRA.Name = "btRA";
             this.btRA.Size = new System.Drawing.Size(159, 36);
             this.btRA.TabIndex = 50;
@@ -101,7 +101,7 @@
             // 
             // btDC
             // 
-            this.btDC.Location = new System.Drawing.Point(178, 268);
+            this.btDC.Location = new System.Drawing.Point(231, 268);
             this.btDC.Name = "btDC";
             this.btDC.Size = new System.Drawing.Size(160, 36);
             this.btDC.TabIndex = 40;
@@ -121,7 +121,7 @@
             // 
             // btBF
             // 
-            this.btBF.Location = new System.Drawing.Point(12, 267);
+            this.btBF.Location = new System.Drawing.Point(65, 267);
             this.btBF.Name = "btBF";
             this.btBF.Size = new System.Drawing.Size(160, 36);
             this.btBF.TabIndex = 30;
@@ -159,7 +159,7 @@
             this.tbInput.Multiline = true;
             this.tbInput.Name = "tbInput";
             this.tbInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbInput.Size = new System.Drawing.Size(437, 192);
+            this.tbInput.Size = new System.Drawing.Size(628, 192);
             this.tbInput.TabIndex = 20;
             // 
             // tabPage2

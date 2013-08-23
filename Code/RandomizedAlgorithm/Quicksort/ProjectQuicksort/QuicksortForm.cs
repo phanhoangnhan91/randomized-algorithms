@@ -39,10 +39,10 @@ namespace ProjectQuicksort
                 lbQS.Text = "";
                 lbRQS.Text = "";
                 int so_pt;
-                string inputK = Microsoft.VisualBasic.Interaction.InputBox("The size of input array:", "Random input", "2", 200, 200);
-                if (!int.TryParse(inputK, out so_pt))
+                string inputK = Microsoft.VisualBasic.Interaction.InputBox("The size of input array:", "Random input", "2", 500, 200);
+                if (!int.TryParse(inputK, out so_pt)&&inputK!="")
                 {
-                    throw new Exception("Invalid value");
+                    throw new Exception("Invalid value!");
                 }
                 qsArray = new int[so_pt];
                 StringBuilder str = new StringBuilder();
@@ -62,13 +62,13 @@ namespace ProjectQuicksort
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
         #endregion
 
         #region Read write array 
-        private void createArray()
+        private bool createArray()
         {
             string[] chuoi_cat = tb_Input.Text.Trim().Split(' ');
             qsArray = new int[chuoi_cat.Length];
@@ -78,14 +78,15 @@ namespace ProjectQuicksort
                 {
                     int so = 0;
                     if (!int.TryParse(chuoi_cat[i], out so))
-                        throw new Exception("mảng nhập không hợp lệ");
+                        throw new Exception("Invalid input!");
                     qsArray[i] = so;
                 }
-
+                return true;
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
             }
         }
         private string readArray(int[] array)
@@ -100,16 +101,26 @@ namespace ProjectQuicksort
         #region Quicksort (classic)
         private void bt_QuickSort_Click(object sender, EventArgs e)
         {
-            tb_OutputQS.Clear();
-            lbQS.Text = "";
-            createArray();
-            Stopwatch sw = Stopwatch.StartNew();
-            quickSort(qsArray, 0, qsArray.Length - 1);           
-            sw.Stop();            
-            long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            ThemDuLieuVaoList(qsArray.Length,"Quicksort", microseconds.ToString());
-            tb_OutputQS.Text = readArray(qsArray);
-            lbQS.Text = "Running time: " + microseconds.ToString() + " microseconds";
+            try
+            {
+                tb_OutputQS.Clear();
+                lbQS.Text = "";
+                if (!createArray())
+                    return;
+                else
+                {
+                    Stopwatch sw = Stopwatch.StartNew();
+                    quickSort(qsArray, 0, qsArray.Length - 1);
+                    sw.Stop();
+                    long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                    ThemDuLieuVaoList(qsArray.Length, "Quicksort", microseconds.ToString());
+                    tb_OutputQS.Text = readArray(qsArray);
+                    lbQS.Text = "Running time: " + microseconds.ToString() + " microseconds";
+                }
+            }
+            catch
+            {
+            }
         }
         void quickSort(int[] a, int l, int r)
         {
@@ -126,16 +137,25 @@ namespace ProjectQuicksort
         #region Quicksort (randomized)
         private void bt_RAQuicksort_Click(object sender, EventArgs e)
         {
-            tb_OutputRQS.Clear();
-            lbRQS.Text = "";
-            createArray();
-            Stopwatch sw = Stopwatch.StartNew();
-            randomizedQuicksort(qsArray, 0, qsArray.Length-1);
-            sw.Stop();
-            long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
-            ThemDuLieuVaoList(qsArray.Length,"Randomized quicksort", microseconds.ToString());
-            tb_OutputRQS.Text = readArray(qsArray);
-            lbRQS.Text = "Running time: " + microseconds.ToString() + " microseconds";
+            try
+            {
+
+                tb_OutputRQS.Clear();
+                lbRQS.Text = "";
+                if (!createArray())
+                    return;
+                Stopwatch sw = Stopwatch.StartNew();
+                randomizedQuicksort(qsArray, 0, qsArray.Length - 1);
+                sw.Stop();
+                long microseconds = sw.ElapsedTicks / (Stopwatch.Frequency / (1000L * 1000L));
+                ThemDuLieuVaoList(qsArray.Length, "Randomized quicksort", microseconds.ToString());
+                tb_OutputRQS.Text = readArray(qsArray);
+                lbRQS.Text = "Running time: " + microseconds.ToString() + " microseconds";
+
+            }
+            catch
+            {
+            }
         }
 
         private void randomizedQuicksort(int[] a, int p, int r)
