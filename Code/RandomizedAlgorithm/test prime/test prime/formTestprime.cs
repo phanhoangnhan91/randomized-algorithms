@@ -30,7 +30,17 @@ namespace test_prime
 
         private void btKiemtra_Click(object sender, EventArgs e)
         {
-            double N = Convert.ToDouble(txtN.Text);
+            double N;
+            try
+            {
+                 N = Convert.ToDouble(txtN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid input!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                txtN.Focus();
+                return;
+            }
             Stopwatch sw = Stopwatch.StartNew();
             Boolean isPrime = TestPrimeClassical(N);
             sw.Stop();
@@ -64,9 +74,12 @@ namespace test_prime
         public static string ShowDialog(string text, string caption)
         {
             Form prompt = new Form();
+            prompt.StartPosition = FormStartPosition.CenterParent;
             prompt.Width = 500;
             prompt.Height = 150;
             prompt.Text = caption;
+            prompt.FormBorderStyle = FormBorderStyle.FixedSingle;
+            prompt.MaximizeBox = false;
             Label textLabel = new Label() { Left = 50, Top = 20, Text = text, Width=400 };
             TextBox textBox = new TextBox() { Left = 50, Top = 50, Width = 400 };
             Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 70 };
@@ -81,9 +94,33 @@ namespace test_prime
         }
         private void btKiemtraRa_Click(object sender, EventArgs e)
         {
+            double n;
+            int m;
+            try
+            {
+                 n = Convert.ToDouble(txtN.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Invalid input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtN.Focus();
+                return;
+            }
+
+            try
+            {
+
+               // FrTestPrime.StartPosition = FormStartPosition.CenterParent;
+                m = Convert.ToInt32(FrTestPrime.ShowDialog("The number of times to test for primality:", "Test for primality"));
+            }
+            catch
+            {
+                MessageBox.Show("Invalid input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnFermat.Focus();
+                return;
+            }
+
             
-            double n = Convert.ToDouble(txtN.Text);
-            int m = Convert.ToInt32(FrTestPrime.ShowDialog("The number of times to test for primality:", "Test for primality"));
             Stopwatch sw = Stopwatch.StartNew();     
             BigInteger bi = new BigInteger(txtN.Text,10);
             Boolean bl=  bi.FermatLittleTest(m);

@@ -86,9 +86,9 @@
       <Project>{77bb4328-f2db-4f12-82f0-bf09da021615}</Project>
       <Name>Client</Name>
     </ProjectReference>
-    <ProjectReference Include="..\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\Kruskal.csproj">
+    <ProjectReference Include="..\prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\Prim.csproj">
       <Project>{79fe5a94-b83a-4c81-b6a7-d54b429f23ba}</Project>
-      <Name>Kruskal</Name>
+      <Name>Prim</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectClosestPair\ProjectClosestPair.csproj">
       <Project>{1f39492d-94f4-4571-8d2d-2ea4b54edce7}</Project>
@@ -98,9 +98,9 @@
       <Project>{e3cbbb03-9190-4807-852a-dc12f0e4f12a}</Project>
       <Name>ProjectQuicksort</Name>
     </ProjectReference>
-    <ProjectReference Include="..\test prime\test prime\test prime.csproj">
+    <ProjectReference Include="..\test prime\test prime\TestPrime.csproj">
       <Project>{f38f0c8d-b64c-4676-9505-2f6ddb171bbc}</Project>
-      <Name>test prime</Name>
+      <Name>TestPrime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -145,7 +145,7 @@ namespace Kruskal
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Do you want to clear this graph ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+            DialogResult dr = MessageBox.Show("Do you want to clear this graph ?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 //btnSolve.Enabled = true;
@@ -154,8 +154,7 @@ namespace Kruskal
                 Graphics g = panel1.CreateGraphics();
                 g.Clear(panel1.BackColor);
                 Clear();
-                lbTongchiphi.Text = "";
-                lbGT.Text = "";
+                ClearLabel();
             }
         }
 
@@ -281,6 +280,8 @@ namespace Kruskal
                     //MessageBox.Show("Total Cost: " + totalCost.ToString(), "Solution", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lbTongchiphi.Text = "Total cost: " + totalCost.ToString();
                     lbGT.Text = "[RA]";
+                    lbRunningTime.Text = "Running Time:";
+                    lbRunningTime2.Text = microseconds.ToString();
                     drawchart();
                 }
             }
@@ -288,7 +289,15 @@ namespace Kruskal
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            ClearLabel();
+        }
 
+        private void ClearLabel()
+        {
+            lbGT.Text = "";
+            lbRunningTime.Text = "";
+            lbRunningTime2.Text = "";
+            lbTongchiphi.Text = "";   
         }
 
         private void btDel_Click(object sender, EventArgs e)
@@ -305,6 +314,11 @@ namespace Kruskal
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            if (_graph.Count < _vertices.Count - 1)
+            {
+                MessageBox.Show("Missing Edges. Cannot save!", "Alert", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             SaveFileDialog save = new SaveFileDialog();
             save.Filter = "Text file|*.txt";
@@ -350,8 +364,7 @@ namespace Kruskal
 
         private void btopen_Click(object sender, EventArgs e)
         {
-            lbTongchiphi.Text = "";
-            lbGT.Text = "";
+            ClearLabel();
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             // Show the dialog and get result.
             openFileDialog1.Filter = "Text file|*.txt";
@@ -459,6 +472,8 @@ namespace Kruskal
                     //MessageBox.Show("Total Cost: " + totalCost.ToString(), "Solution", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lbTongchiphi.Text = "Total cost: " + totalCost.ToString();
                     lbGT.Text = "[Prim]";
+                    lbRunningTime.Text = "Running Time:";
+                    lbRunningTime2.Text = microseconds.ToString();
                     drawchart();
                 }
             }

@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiplyMatrix", "MultiplyM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "prim\KruskalAlgorithm\KruskalAlgorithm\Client\Client.csproj", "{77BB4328-F2DB-4F12-82F0-BF09DA021615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kruskal", "prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\Kruskal.csproj", "{79FE5A94-B83A-4C81-B6A7-D54B429F23BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prim", "prim\KruskalAlgorithm\KruskalAlgorithm\Kruskal\Prim.csproj", "{79FE5A94-B83A-4C81-B6A7-D54B429F23BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test prime", "test prime\test prime\test prime.csproj", "{F38F0C8D-B64C-4676-9505-2F6DDB171BBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPrime", "test prime\test prime\TestPrime.csproj", "{F38F0C8D-B64C-4676-9505-2F6DDB171BBC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectQuicksort", "Quicksort\ProjectQuicksort\ProjectQuicksort.csproj", "{E3CBBB03-9190-4807-852A-DC12F0E4F12A}"
 EndProject

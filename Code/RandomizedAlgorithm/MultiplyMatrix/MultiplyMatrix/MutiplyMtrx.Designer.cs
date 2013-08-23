@@ -113,7 +113,7 @@
             // 
             this.lbResult2.AutoSize = true;
             this.lbResult2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbResult2.Location = new System.Drawing.Point(401, 433);
+            this.lbResult2.Location = new System.Drawing.Point(405, 433);
             this.lbResult2.Name = "lbResult2";
             this.lbResult2.Size = new System.Drawing.Size(0, 17);
             this.lbResult2.TabIndex = 64;
@@ -122,7 +122,7 @@
             // 
             this.lbResult1.AutoSize = true;
             this.lbResult1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbResult1.Location = new System.Drawing.Point(96, 433);
+            this.lbResult1.Location = new System.Drawing.Point(100, 433);
             this.lbResult1.Name = "lbResult1";
             this.lbResult1.Size = new System.Drawing.Size(0, 17);
             this.lbResult1.TabIndex = 64;
@@ -275,7 +275,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.chart1);
-            this.panel1.Location = new System.Drawing.Point(337, 30);
+            this.panel1.Location = new System.Drawing.Point(347, 30);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(439, 391);
             this.panel1.TabIndex = 21;
@@ -294,7 +294,7 @@
             // 
             // btDel
             // 
-            this.btDel.Location = new System.Drawing.Point(107, 427);
+            this.btDel.Location = new System.Drawing.Point(117, 427);
             this.btDel.Name = "btDel";
             this.btDel.Size = new System.Drawing.Size(99, 29);
             this.btDel.TabIndex = 110;
@@ -308,7 +308,7 @@
             this.columnHeader3,
             this.columnHeader1,
             this.columnHeader2});
-            this.listViewDuLieu.Location = new System.Drawing.Point(7, 30);
+            this.listViewDuLieu.Location = new System.Drawing.Point(17, 30);
             this.listViewDuLieu.Name = "listViewDuLieu";
             this.listViewDuLieu.Size = new System.Drawing.Size(324, 391);
             this.listViewDuLieu.TabIndex = 100;
@@ -337,7 +337,9 @@
             this.ClientSize = new System.Drawing.Size(816, 518);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MutiplyMtrx";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Verify matrix multiplication";
