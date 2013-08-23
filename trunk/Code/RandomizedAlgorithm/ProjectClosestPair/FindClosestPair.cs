@@ -48,10 +48,10 @@ namespace ProjectClosestPair
             {
                 int countP;
 
-                string inputK = Microsoft.VisualBasic.Interaction.InputBox("The size of input array:", "Random input", "2", 200, 200);
+                string inputK = Microsoft.VisualBasic.Interaction.InputBox("The size of input array:", "Random input", "2", 500, 200);
                 if (!int.TryParse(inputK, out countP)&& inputK!="")
                 {
-                    throw new Exception("Invalid value");
+                    throw new Exception("Invalid value!");
                 }
 
                 //refresh 
@@ -71,7 +71,7 @@ namespace ProjectClosestPair
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
